@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://test.com"
+base_url = "https://krinosx.github.io"
 # The site title and description; used in feeds by default.
 title = "Giuliano Dev Corner"
 description = "A blog to share my experiences with coding and software development."
