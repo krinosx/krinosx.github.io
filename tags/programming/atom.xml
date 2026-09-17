@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Giuliano Dev Corner - PROGRAMMING</title>
+    <subtitle>A blog to share my experiences with coding and software development.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://krinosx.github.io/tags/programming/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://krinosx.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-08-18T00:00:00+00:00</updated>
+    <id>https://krinosx.github.io/tags/programming/atom.xml</id>
+    <entry xml:lang="en">
+        <title>DeBo Mud - MMO for vision impaired players</title>
+        <published>2026-08-18T00:00:00+00:00</published>
+        <updated>2026-08-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Giuliano Bortolassi
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://krinosx.github.io/projects/debomud/"/>
+        <id>https://krinosx.github.io/projects/debomud/</id>
+        
+        <content type="html" xml:base="https://krinosx.github.io/projects/debomud/">&lt;h2 id=&quot;brief-history-of-muds&quot;&gt;Brief history of MUDs&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Just put a simple introduction to what mud is, maybe share a link or two to external articles, and please find the link from the BigBangTheory scene where sheldon describes what a MUD is.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;about-debo&quot;&gt;About DeBo&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Add a summary of DeBo history, mention Eugenio and the original founders&#x2F;creators. Make sure to mention the mud had a contribution from a lot of people and that I joined the team in mid of 2019.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;evolution&quot;&gt;Evolution&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Give some enphasis in the fact that DeBo become as a petty project for some students, and eventually it turned to become a meeting place for the vision impaired community. It gave a different meaning for the game and for the maintainers.
+TODO: Important to mention that the game eventuallt got adopted by the academic community and give birth to the academic sponsorship, what provided an actual team to work in the project.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;current-team&quot;&gt;Current team&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Explain about the roles, the participants and how the team is organized. That&#x27;s the space where I should explain what&#x27;s my role, how I do keep things running and try to mentor the students about development and how to work professionally with code.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tooling&quot;&gt;Tooling&lt;&#x2F;h3&gt;
+&lt;p&gt;TODO: As it&#x27;s supposed to be a programming blog, exposes some of the internal tools we use. Mention about the codebase be based on CircleMud &lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.circlemud.org&#x2F;pub&#x2F;CircleMUD&#x2F;3.x&#x2F;Old-Betas&#x2F;&quot;&gt;&lt;code&gt;circle30bpl19.tar.bz2&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; from 2001-08-14 and being heavily modified. Mention that we had a lot of challenges and they can be found on the blog posts with the tag #MUD.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;prizes-and-mentions&quot;&gt;Prizes and mentions&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Use this space to add references to the events the team participated, the prizes and&#x2F;or mentions we had in both academic or non academic media (Articles in game magazines, etc.)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;community-and-how-the-game-survives-financially&quot;&gt;Community and how the game survives financially&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Explain we have about XXX number of active players, with around 5-10 concurrent players almost aways connected.
+TODO: Write about the game being a &#x27;non profit&#x27; game, but we open a space for donations in the end of the year so we can use that money to pay the servers where the game runs.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;list-of-posts-related&quot;&gt;List of posts related&lt;&#x2F;h2&gt;
+&lt;p&gt;TODO: Check how to print the list of posts, from the blog session, with the tag MUD. IF not possible, check how to create a link for a specific tag ( #mud )&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
