@@ -6,7 +6,7 @@ paginate_by = 5
 insert_anchor_links = "right"
 
 [extra]
-#framed = true
+framed = true
 +++
 
 I was born in 1983, in a small town in Brazil, about 20,000 people, no internet, and computers were something only rich families had.
