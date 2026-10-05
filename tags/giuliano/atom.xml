@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Giuliano Dev Corner - giuliano</title>
+    <subtitle>A blog to share my experiences with coding and software development.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://krinosx.github.io/tags/giuliano/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://krinosx.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2026-10-05T00:00:00+00:00</updated>
+    <id>https://krinosx.github.io/tags/giuliano/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Coding with AI: Episode 1 - Setting up the environment</title>
+        <published>2026-10-05T00:00:00+00:00</published>
+        <updated>2026-10-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Giuliano Bortolassi
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://krinosx.github.io/blog/codewithai01/"/>
+        <id>https://krinosx.github.io/blog/codewithai01/</id>
+        
+        <content type="html" xml:base="https://krinosx.github.io/blog/codewithai01/">&lt;p&gt;For quite a long time I have been working as a volunteer on the DeBo MUD project. It&#x27;s a nice project,
+with, I would say, a noble goal, where I get to coach, and learn a lot from, a very nice group of people.&lt;&#x2F;p&gt;
+&lt;p&gt;But my selfish goal is to use the project to practice my coding skills in C and force myself to stay
+close to the actual code and solve low-level problems. That&#x27;s no secret to the group.&lt;&#x2F;p&gt;
+&lt;p&gt;Still, this year, with coding agents going mainstream, my limited free time, and the desire to
+deliver new features for the game, I decided to try a different approach. I will start using
+AI to code for me. Not fully - yet - but as a tool to (hopefully) speed things up. So I subscribed
+to a basic Claude plan and that&#x27;s where this journey started.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;my-setup&quot;&gt;My setup&lt;a class=&quot;post-anchor&quot; href=&quot;#my-setup&quot; aria-label=&quot;Anchor link for: my-setup&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+&lt;&#x2F;h1&gt;
+&lt;p&gt;I have a desktop PC. It dual-boots: Windows 11 with Ubuntu under WSL2, and a &#x27;pure&#x27; Ubuntu install
+running Wayland and Niri through DMS on a separate hard drive.
+Usually, and by &#x27;usually&#x27; I mean for at least the last seven years, Windows + WSL2 has been my setup
+for developing DeBo MUD.&lt;&#x2F;p&gt;
+&lt;p&gt;For an IDE, I use CLion. I used to program using VS Code with C&#x2F;C++ plugins, but that was not the greatest
+experience, so I decided to pay for the JetBrains suite a couple of years ago and I am still using it,
+on both Windows and Linux.&lt;&#x2F;p&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.22ce429a4ad83227.jpg&quot; alt=&quot;My Setup&quot;
+     width=&quot;1280&quot; height=&quot;960&quot;
+     sizes=&quot;(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)&quot; 
+     srcset=&quot;https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.8b14e8b46ce467d2.jpg 640w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.7f848f6e0b91227f.jpg 784w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.a4e6ec623c95eadd.jpg 1280w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.df6a54c8ef18d445.jpg 1920w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;photo_my_setup.092c59272c4e9acc.jpg 2560w&quot;
+     loading=&quot;lazy&quot;&gt;
+&lt;h1 id=&quot;installing-claude&quot;&gt;Installing Claude&lt;a class=&quot;post-anchor&quot; href=&quot;#installing-claude&quot; aria-label=&quot;Anchor link for: installing-claude&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+&lt;&#x2F;h1&gt;
+&lt;p&gt;Ok, given my environment, I first installed Claude on Windows. I didn&#x27;t give it much thought: just
+as CLion on Windows can access my projects inside WSL2, I assumed Claude Code could do the same.
+It couldn&#x27;t, at least not in a straightforward way, and since the whole point is to make up for my
+lack of time, I didn&#x27;t want to spend it figuring that out. So, I installed Claude on WSL2, and it
+was smooth.&lt;&#x2F;p&gt;
+&lt;p&gt;Just run the &#x27;super safe&#x27; installer (trusting it won&#x27;t break your machine) and authenticate with
+your Anthropic account.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt;curl&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E3A1;&quot;&gt; -fsSL https:&#x2F;&#x2F;claude.ai&#x2F;install.sh&lt;&#x2F;span&gt;&lt;span style=&quot;color: #94E2D5;&quot;&gt; |&lt;&#x2F;span&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt; bash&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It was almost fine. I could run the Claude CLI&#x2F;Harness inside WSL2 and use CLion to browse and review the
+changes, but for some reason it was not great, and it was not a problem with Claude, or CLion, or Windows,
+or WSL2... it was the combination of all of them that didn&#x27;t feel right. For instance, Claude Desktop,
+running natively on Windows, couldn&#x27;t access the same files as the Claude CLI running in WSL2. For
+some weird reason my CLion integration with WSL2 started to lag, so editing code myself while the
+AI was working was sometimes unpleasant. Lazy mode on again, I decided to try running everything natively on Ubuntu.&lt;&#x2F;p&gt;
+&lt;p&gt;That was it. It just works. IDE + Claude Code running on the same OS. Far fewer moving parts, as far as I
+can tell, and even with Claude Desktop being in beta, it works well with Wayland + Niri on Ubuntu. So far,
+zero problems.&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;adding-more-tools&quot;&gt;Adding more tools&lt;a class=&quot;post-anchor&quot; href=&quot;#adding-more-tools&quot; aria-label=&quot;Anchor link for: adding-more-tools&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+&lt;&#x2F;h1&gt;
+&lt;p&gt;Once I had Claude and CLion working together, I noticed most of the AI&#x27;s work was searching and reading
+source files. Even though my current usage is not even close to my token limits, I wondered if that could be
+improved. A colleague who is already a heavy user of Claude suggested adding an
+&lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Model_Context_Protocol&quot;&gt;MCP&lt;&#x2F;a&gt; server that uses an &lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Language_Server_Protocol&quot;&gt;LSP&lt;&#x2F;a&gt;
+to edit&#x2F;query the code. Interesting idea, and that&#x27;s how I got to know &lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;oraios&#x2F;serena&quot;&gt;Serena&lt;&#x2F;a&gt;.
+It&#x27;s a nice concept, free and fairly easy to install.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;installing-serena&quot;&gt;Installing Serena&lt;a class=&quot;post-anchor&quot; href=&quot;#installing-serena&quot; aria-label=&quot;Anchor link for: installing-serena&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;#&lt;&#x2F;span&gt;&lt;&#x2F;a&gt;
+&lt;&#x2F;h3&gt;
+&lt;p&gt;As an Ubuntu&#x2F;Debian user, I would expect the standard workflow: &lt;code&gt;sudo apt install serena&lt;&#x2F;code&gt;. Well, not this time,
+which is understandable. MCPs are the new guys, and I think it might take a while before they become
+part of apt or any other official Linux package manager.&lt;&#x2F;p&gt;
+&lt;p&gt;The Quickstart section on the GitHub page shows what&#x27;s needed, and it looks quite easy.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;uv tool install -p 3.13 serena-agent&lt;&#x2F;code&gt; followed by a &lt;code&gt;serena init&lt;&#x2F;code&gt; command. Easy-peasy. Well, if you already
+have &lt;code&gt;uv&lt;&#x2F;code&gt; installed.&lt;&#x2F;p&gt;
+&lt;p&gt;Installing &lt;code&gt;uv&lt;&#x2F;code&gt; is another &#x27;leap of faith&#x27;. The command is simple: &lt;code&gt;curl -LsSf https:&#x2F;&#x2F;astral.sh&#x2F;uv&#x2F;install.sh | sh&lt;&#x2F;code&gt;
+but how many times should I trust a random &lt;code&gt;.sh&lt;&#x2F;code&gt; script to run on my local machine directly from the web? On the &lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;docs.astral.sh&#x2F;uv&#x2F;getting-started&#x2F;installation&#x2F;&quot;&gt;&lt;code&gt;uv&lt;&#x2F;code&gt;
+installation page&lt;&#x2F;a&gt; they even say the installation script
+may be inspected before use... it&#x27;s only 2000 lines of shell script... seriously?&lt;&#x2F;p&gt;
+&lt;p&gt;I just ran it and prayed for things to go right. It went well... do I have backdoors on my machine now? Who knows.&lt;&#x2F;p&gt;
+&lt;p&gt;With &lt;code&gt;uv&lt;&#x2F;code&gt; installed, installing and running Serena was a breeze. Configuring its integration with Claude was
+also quite straightforward. The Serena project offers good documentation, and that makes a big difference. I
+even found a section dedicated specifically to &lt;a class=&quot;external&quot; rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;oraios.github.io&#x2F;serena&#x2F;02-usage&#x2F;030_clients.html#claude-code&quot;&gt;Serena with Claude Code&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The docs are more detailed, but it boils down to &lt;code&gt;serena setup claude-code&lt;&#x2F;code&gt;, and adding the MCP to Claude Code:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #CDD6F4; background-color: #1E1E2E;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #89B4FA;font-style: italic;&quot;&gt;claude&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E3A1;&quot;&gt; mcp add serena -- serena start-mcp-server --context claude-code --project &amp;quot;&amp;lt;path to your project folder&amp;gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;I chose to configure Serena+Claude on a per-project basis, as I don&#x27;t see how useful it would be to have Serena on a non-code project,
+like documentation or even the repository I use to manage this blog.&lt;&#x2F;p&gt;
+&lt;p&gt;The beauty of this Serena setup is that Claude starts and stops the Serena server with each session,
+and even shows a dashboard where you can monitor Serena usage, right out of the box.&lt;&#x2F;p&gt;
+&lt;p&gt;That was the basic setup, and with these two tools installed I started working on my first game feature using AI. But that&#x27;s
+for another post.&lt;&#x2F;p&gt;
+&lt;p&gt;(These are the three tools side by side)
+&lt;img src=&quot;https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.9332bc4446c6be7a.png&quot; alt=&quot;Final Setup&quot;
+     width=&quot;1280&quot; height=&quot;477&quot;
+     sizes=&quot;(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)&quot; 
+     srcset=&quot;https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.93b7a6bbc15aad7d.png 640w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.b824519e3cff3a3e.png 784w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.a15cf02451c3b9ea.png 1280w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.3dc88de3614f3b09.png 1920w,
+             https:&#x2F;&#x2F;krinosx.github.io&#x2F;processed_images&#x2F;ss_setup_claude_serena_clion.c48636b386fecf51.png 2560w&quot;
+     loading=&quot;lazy&quot;&gt;
+&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Welcome to my Corner</title>
+        <published>2026-09-16T00:00:00+00:00</published>
+        <updated>2026-09-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Giuliano Bortolassi
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://krinosx.github.io/blog/introduction/"/>
+        <id>https://krinosx.github.io/blog/introduction/</id>
+        
+        <content type="html" xml:base="https://krinosx.github.io/blog/introduction/">&lt;p&gt;I was born in 1983, in a small town in Brazil with about 20,000 people, at a time when almost nobody around me had a
+computer. What got me into programming was wanting to change the endings of video games I played as a kid. An older
+friend told me I would need to learn to code to do that, so at 12 years old I did, and I never really stopped. By the
+late 90s I had my first job at an internet provider in my hometown, right when the internet in Brazil was still brand
+new.&lt;&#x2F;p&gt;
+&lt;p&gt;That early exposure to the internet and to Linux pushed me toward a career in software, starting with PHP web
+development. In 2009 I pivoted into the financial market industry, spending years working with enterprise Java at places
+like Deutsche Bank and the Brazilian Stock Exchange. Today I work as an Observability Engineer for a global payments
+company in the Netherlands, building the telemetry and observability tooling that helps keep large scale systems running
+reliably.&lt;&#x2F;p&gt;
+&lt;p&gt;On my free time, I have been a volunteer technical leader for a game server project since 2015, leading a small team of
+developers and community managers. What started as a childhood hobby turned into a long running project, and the game
+itself has been running for 20 years without pauses.&lt;&#x2F;p&gt;
+&lt;p&gt;I also have a strong personal interest in low level systems programming. C and Go are my languages of choice for hobby
+projects, and I enjoy building tools from scratch just to understand how things really work under the hood, from
+compilers to deployment automation.&lt;&#x2F;p&gt;
+&lt;p&gt;This blog will mostly be about my personal projects and hobbies. Expect posts about game programming, C and Go
+experiments, and sometimes some other random thoughts. The idea is to document and share part of my learning journey,
+both to force myself to structure my process and to, maybe, make the journey useful to somebody else.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

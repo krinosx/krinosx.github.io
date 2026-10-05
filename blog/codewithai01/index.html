@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src-attr 'unsafe-inline'; base-uri 'self'; connect-src 'self' cloudflareinsights.com; form-action 'self'">
+
+    <title>Coding with AI: Episode 1 - Setting up the environment | Giuliano Dev Corner</title>
+
+    <link rel="preload" href="https://krinosx.github.io/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://krinosx.github.io/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://krinosx.github.io/css/style.css?h=6d2221c78b109beb6d13">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💾</text></svg>">
+    <script src="https://krinosx.github.io/js/auto-close-popover-on-resize.js?h=4ef87d6fc7b98b22e044" defer></script>
+    <script src="https://krinosx.github.io/js/copy-code-to-clipboard.js?h=6eec6d5a29e934c1de32" defer></script>
+
+    <link rel="canonical" href="https://krinosx.github.io/blog/codewithai01/">
+    
+    <meta name="author" content="Giuliano Bortolassi">
+    <meta name="description" content="Preparing my local environment for AI development. A fairly long, reflective post about installing Claude and Serena before writing any code.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#211f1a">
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:title" content="Coding with AI: Episode 1 - Setting up the environment">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://krinosx.github.io/blog/codewithai01/">
+    <meta property="og:description" content="Preparing my local environment for AI development. A fairly long, reflective post about installing Claude and Serena before writing any code.">
+    <meta property="og:site_name" content="Giuliano Dev Corner">
+    <meta property="og:updated_time" content="2026-10-05T20:42:44.283762014+00:00">
+    <meta property="article:published_time" content="2026-10-05T00:00:00+00:00">
+    <meta property="article:tag" content="giuliano">
+    <meta property="article:tag" content="general">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="setup">
+    <meta property="article:tag" content="claude">
+    <meta property="article:tag" content="serena">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Giuliano Bortolassi">
+    <meta name="twitter:label2" content="Reading time">
+    <meta name="twitter:data2" content="5 min">
+</head>
+
+<body class="layout-center" data-theme="catppuccin-macchiato">
+    <header class="header">
+        <div class="header-container">
+            <span class="header-logo-container">
+                <a href="https://krinosx.github.io">
+                    <span class="logo">Giuliano Dev Corner</span>
+                </a>
+            </span>
+        </div>
+        <nav class="main-menu" aria-label="Main Menu">
+            <a class="skip-to-content" href="#main">Skip to main content</a>
+            <button class="main-menu-dropdown-button" popovertarget="nav-menu">Menu</button>
+            <ul id="nav-menu" class="main-menu-items" aria-label="Site Navigation" popover>
+                <li><a href="https://krinosx.github.io/">home</a></li>
+                <li><a href="https://krinosx.github.io/about/">about</a></li>
+                <li><a href="https://krinosx.github.io/blog/">blog</a></li>
+                <li><a href="https://krinosx.github.io/archive/">archive</a></li>
+                <li><a href="https://krinosx.github.io/tags/">tags</a></li>
+                <li><a href="https://krinosx.github.io/projects/">projects</a></li>
+                <li><a href="https://github.com/krinosx" target="_blank">github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <article class="post content">
+            <header>
+                <h1 class="post-title">
+                    <a href="https://krinosx.github.io/blog/codewithai01/">Coding with AI: Episode 1 - Setting up the environment</a>
+                </h1>
+                <ul class="post-meta hidden">
+                    <li title="Published on 2026-10-05"><time datetime="2026-10-05">2026.10.05</time></li>
+                    <li role="separator" aria-hidden="true">::</li>
+                    <li title="Authors">Giuliano Bortolassi</li>
+                    <li role="separator" aria-hidden="true">::</li>
+                    <li title="975 words"><time datetime="PT5M">5 min</time> read</li>
+                </ul>
+                <div class="post-tags">
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/giuliano/">giuliano</a></span>
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/general/">general</a></span>
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/ai/">AI</a></span>
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/setup/">setup</a></span>
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/claude/">claude</a></span>
+                    <span>#<a rel="tag" href="https://krinosx.github.io/tags/serena/">serena</a></span>
+                </div>
+            </header>
+
+<p>For quite a long time I have been working as a volunteer on the DeBo MUD project. It's a nice project,
+with, I would say, a noble goal, where I get to coach, and learn a lot from, a very nice group of people.</p>
+<p>But my selfish goal is to use the project to practice my coding skills in C and force myself to stay
+close to the actual code and solve low-level problems. That's no secret to the group.</p>
+<p>Still, this year, with coding agents going mainstream, my limited free time, and the desire to
+deliver new features for the game, I decided to try a different approach. I will start using
+AI to code for me. Not fully - yet - but as a tool to (hopefully) speed things up. So I subscribed
+to a basic Claude plan and that's where this journey started.</p>
+<h1 id="my-setup">My setup<a class="post-anchor" href="#my-setup" aria-label="Anchor link for: my-setup"><span aria-hidden="true">#</span></a>
+</h1>
+<p>I have a desktop PC. It dual-boots: Windows 11 with Ubuntu under WSL2, and a 'pure' Ubuntu install
+running Wayland and Niri through DMS on a separate hard drive.
+Usually, and by 'usually' I mean for at least the last seven years, Windows + WSL2 has been my setup
+for developing DeBo MUD.</p>
+<p>For an IDE, I use CLion. I used to program using VS Code with C/C++ plugins, but that was not the greatest
+experience, so I decided to pay for the JetBrains suite a couple of years ago and I am still using it,
+on both Windows and Linux.</p>
+<img src="https://krinosx.github.io/processed_images/photo_my_setup.22ce429a4ad83227.jpg" alt="My Setup"
+     width="1280" height="960"
+     sizes="(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)" 
+     srcset="https://krinosx.github.io/processed_images/photo_my_setup.8b14e8b46ce467d2.jpg 640w,
+             https://krinosx.github.io/processed_images/photo_my_setup.7f848f6e0b91227f.jpg 784w,
+             https://krinosx.github.io/processed_images/photo_my_setup.a4e6ec623c95eadd.jpg 1280w,
+             https://krinosx.github.io/processed_images/photo_my_setup.df6a54c8ef18d445.jpg 1920w,
+             https://krinosx.github.io/processed_images/photo_my_setup.092c59272c4e9acc.jpg 2560w"
+     loading="lazy">
+<h1 id="installing-claude">Installing Claude<a class="post-anchor" href="#installing-claude" aria-label="Anchor link for: installing-claude"><span aria-hidden="true">#</span></a>
+</h1>
+<p>Ok, given my environment, I first installed Claude on Windows. I didn't give it much thought: just
+as CLion on Windows can access my projects inside WSL2, I assumed Claude Code could do the same.
+It couldn't, at least not in a straightforward way, and since the whole point is to make up for my
+lack of time, I didn't want to spend it figuring that out. So, I installed Claude on WSL2, and it
+was smooth.</p>
+<p>Just run the 'super safe' installer (trusting it won't break your machine) and authenticate with
+your Anthropic account.</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">curl</span><span style="color: #A6E3A1;"> -fsSL https://claude.ai/install.sh</span><span style="color: #94E2D5;"> |</span><span style="color: #89B4FA;font-style: italic;"> bash</span></span></code></pre>
+<p>It was almost fine. I could run the Claude CLI/Harness inside WSL2 and use CLion to browse and review the
+changes, but for some reason it was not great, and it was not a problem with Claude, or CLion, or Windows,
+or WSL2... it was the combination of all of them that didn't feel right. For instance, Claude Desktop,
+running natively on Windows, couldn't access the same files as the Claude CLI running in WSL2. For
+some weird reason my CLion integration with WSL2 started to lag, so editing code myself while the
+AI was working was sometimes unpleasant. Lazy mode on again, I decided to try running everything natively on Ubuntu.</p>
+<p>That was it. It just works. IDE + Claude Code running on the same OS. Far fewer moving parts, as far as I
+can tell, and even with Claude Desktop being in beta, it works well with Wayland + Niri on Ubuntu. So far,
+zero problems.</p>
+<h1 id="adding-more-tools">Adding more tools<a class="post-anchor" href="#adding-more-tools" aria-label="Anchor link for: adding-more-tools"><span aria-hidden="true">#</span></a>
+</h1>
+<p>Once I had Claude and CLion working together, I noticed most of the AI's work was searching and reading
+source files. Even though my current usage is not even close to my token limits, I wondered if that could be
+improved. A colleague who is already a heavy user of Claude suggested adding an
+<a class="external" rel="external" href="https://en.wikipedia.org/wiki/Model_Context_Protocol">MCP</a> server that uses an <a class="external" rel="external" href="https://en.wikipedia.org/wiki/Language_Server_Protocol">LSP</a>
+to edit/query the code. Interesting idea, and that's how I got to know <a class="external" rel="external" href="https://github.com/oraios/serena">Serena</a>.
+It's a nice concept, free and fairly easy to install.</p>
+<h3 id="installing-serena">Installing Serena<a class="post-anchor" href="#installing-serena" aria-label="Anchor link for: installing-serena"><span aria-hidden="true">#</span></a>
+</h3>
+<p>As an Ubuntu/Debian user, I would expect the standard workflow: <code>sudo apt install serena</code>. Well, not this time,
+which is understandable. MCPs are the new guys, and I think it might take a while before they become
+part of apt or any other official Linux package manager.</p>
+<p>The Quickstart section on the GitHub page shows what's needed, and it looks quite easy.</p>
+<p><code>uv tool install -p 3.13 serena-agent</code> followed by a <code>serena init</code> command. Easy-peasy. Well, if you already
+have <code>uv</code> installed.</p>
+<p>Installing <code>uv</code> is another 'leap of faith'. The command is simple: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code>
+but how many times should I trust a random <code>.sh</code> script to run on my local machine directly from the web? On the <a class="external" rel="external" href="https://docs.astral.sh/uv/getting-started/installation/"><code>uv</code>
+installation page</a> they even say the installation script
+may be inspected before use... it's only 2000 lines of shell script... seriously?</p>
+<p>I just ran it and prayed for things to go right. It went well... do I have backdoors on my machine now? Who knows.</p>
+<p>With <code>uv</code> installed, installing and running Serena was a breeze. Configuring its integration with Claude was
+also quite straightforward. The Serena project offers good documentation, and that makes a big difference. I
+even found a section dedicated specifically to <a class="external" rel="external" href="https://oraios.github.io/serena/02-usage/030_clients.html#claude-code">Serena with Claude Code</a>.</p>
+<p>The docs are more detailed, but it boils down to <code>serena setup claude-code</code>, and adding the MCP to Claude Code:</p>
+<pre class="giallo" style="color: #CDD6F4; background-color: #1E1E2E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #89B4FA;font-style: italic;">claude</span><span style="color: #A6E3A1;"> mcp add serena -- serena start-mcp-server --context claude-code --project &quot;&lt;path to your project folder&gt;&quot;</span></span></code></pre>
+<p>I chose to configure Serena+Claude on a per-project basis, as I don't see how useful it would be to have Serena on a non-code project,
+like documentation or even the repository I use to manage this blog.</p>
+<p>The beauty of this Serena setup is that Claude starts and stops the Serena server with each session,
+and even shows a dashboard where you can monitor Serena usage, right out of the box.</p>
+<p>That was the basic setup, and with these two tools installed I started working on my first game feature using AI. But that's
+for another post.</p>
+<p>(These are the three tools side by side)
+<img src="https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.9332bc4446c6be7a.png" alt="Final Setup"
+     width="1280" height="477"
+     sizes="(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)" 
+     srcset="https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.93b7a6bbc15aad7d.png 640w,
+             https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.b824519e3cff3a3e.png 784w,
+             https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.a15cf02451c3b9ea.png 1280w,
+             https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.3dc88de3614f3b09.png 1920w,
+             https://krinosx.github.io/processed_images/ss_setup_claude_serena_clion.c48636b386fecf51.png 2560w"
+     loading="lazy">
+</p>
+
+        </article>
+        <nav class="post-navigation">
+            <header class="post-navigation-title">
+                <h2>Read More Posts</h2>
+                <hr>
+            </header>
+            <div class="post-navigation-buttons">
+                <a rel="prev" href="https://krinosx.github.io/blog/introduction/" aria-label="Prev article" aria-describedby="prev-title">
+                    [<span id="prev-title">Welcome to my Corner</span>]&nbsp;&gt;
+                </a>
+            </div>
+        </nav>
+    </main>
+    <footer class="footer">
+        <address class="socials">
+            <ul>
+                <li>
+                    <a class="social-link" rel="me" href="mailto:giuliano.bortolassi@gmail.com" title="email">
+                        <svg role="img" aria-label="email">
+                            <use href="https://krinosx.github.io/images/social_icons/email.svg#icon" aria-hidden="true" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://github.com/krinosx" title="github">
+                        <svg role="img" aria-label="github">
+                            <use href="https://krinosx.github.io/images/social_icons/github.svg#icon" aria-hidden="true" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://www.linkedin.com/in/giulianobortolassi" title="linkedin">
+                        <svg role="img" aria-label="linkedin">
+                            <use href="https://krinosx.github.io/images/social_icons/linkedin.svg#icon" aria-hidden="true" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </address>
+        <p class="copyright">
+            <span>© <time>2026</time> Giuliano Bortolassi</span>
+            <span>Powered by <a class="external" rel="external" href="https://www.getzola.org">Zola</a></span>
+            <span>Theme by <a class="external" rel="external" href="https://eyalkalderon.com">ebkalderon</a></span>
+        </p>
+    </footer>
+</body>
+
+</html>
